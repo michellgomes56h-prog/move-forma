@@ -1,20 +1,5 @@
 /* ===================== 5.1 HEADER ===================== */
 
-/* Wordmark provisório (some quando a logo oficial entrar) */
-.wordmark {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-weight: var(--peso-ultra);
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--branco);
-}
-.wordmark b { font-weight: inherit; color: var(--laranja); }
-.wordmark--sm { font-size: 1.375rem; }
-
 .header {
   position: fixed;
   inset: 0 0 auto;
@@ -42,7 +27,8 @@
   min-height: 44px;
   margin-right: auto;
 }
-.header__logo img { height: 36px; width: auto; }
+.header__logo img { height: 40px; width: auto; }
+@media (min-width: 1024px) { .header__logo img { height: 48px; } }
 
 /* Navegação desktop */
 .header__nav { display: none; }

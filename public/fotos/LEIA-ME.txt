@@ -1,5 +1,5 @@
-Coloque aqui as fotos da academia (JPG em alta, mínimo 1600px no lado maior).
-- hero.jpg      → foto do ambiente para o fundo da hero (horizontal)
-- sobre.jpg     → foto para a seção "Um espaço só seu"
-- galeria-01.jpg, galeria-02.jpg, ... → galeria
-As versões AVIF/WebP em vários tamanhos são geradas no build.
+NÃO coloque fotos direto aqui. Coloque os originais em /assets-originais e rode: npm run imagens
+- assets-originais/hero.png         → fundo da hero (hoje: anexo 1 sem os textos)
+- assets-originais/sobre.jpg        → seção "Um espaço só seu"
+- assets-originais/galeria/*.jpg    → galeria (ordem alfabética)
+O script gera aqui as versões AVIF/WebP/JPG em vários tamanhos.

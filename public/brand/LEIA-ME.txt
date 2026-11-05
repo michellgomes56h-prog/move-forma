@@ -1,4 +1,4 @@
-Coloque aqui os arquivos oficiais da logo (não redesenhar):
-- logo-horizontal.svg (preferível) ou logo-horizontal.png  → versão do anexo 1 (bonequinho + MOVE FORMA), fundo transparente
-- logo-circular.png  → versão do anexo 2 (círculo laranja), mínimo 512x512
-A partir da logo circular serão gerados: favicon, apple-touch-icon e og-image.jpg (1200x630).
+Arquivos da marca usados no site:
+- logo-horizontal.svg → vetorizada a partir do anexo 1 (provisória). Se tiver o arquivo ORIGINAL da logo (SVG/AI/PDF/PNG grande), substitua este arquivo com o mesmo nome.
+- logo-circular.png   → recortada do print do Instagram (anexo 2), só 147px. Substitua pelo original em alta (mín. 512x512) e rode: npm run imagens
+- og-image.jpg        → imagem de compartilhamento (WhatsApp/Facebook), gerada do anexo 1.
