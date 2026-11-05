@@ -1,0 +1,24 @@
+/* ===================== 5.10 RODAPÉ ===================== */
+.rodape { padding-top: var(--sp-8); background: var(--preto); border-top: 1px solid var(--borda); }
+.rodape__grid { display: grid; gap: var(--sp-7); padding-bottom: var(--sp-7); }
+.rodape__marca { display: grid; gap: var(--sp-4); justify-items: start; }
+.rodape__marca img { width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 0 0 4px var(--preto), 0 0 0 5px var(--laranja-40); }
+.rodape__frase { font-weight: var(--peso-ultra); font-style: italic; text-transform: uppercase; font-size: var(--fs-lg); }
+.rodape__frase em { font-style: inherit; color: var(--laranja); }
+.rodape__titulo { font-size: var(--fs-xs); font-weight: var(--peso-semi); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--laranja); margin-bottom: var(--sp-3); }
+.rodape__col a { display: inline-flex; align-items: center; gap: var(--sp-3); min-height: 44px; transition: color var(--dur-2); }
+.rodape__col a:hover { color: var(--laranja); }
+.rodape__col svg { width: 22px; height: 22px; color: var(--laranja); }
+.rodape__col address { font-style: normal; color: var(--texto-suave); }
+.rodape__base {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-3);
+  padding-block: var(--sp-5) calc(var(--sp-5) + 72px); /* espaço para o botão flutuante no celular */
+  border-top: 1px solid var(--borda);
+  font-size: var(--fs-sm);
+  color: var(--texto-suave);
+}
+.rodape__credito { opacity: 0.8; }
+@media (min-width: 768px) {
+  .rodape__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .rodape__base { padding-bottom: var(--sp-5); }
+}

@@ -27,7 +27,7 @@
 /* ---------- Fundo ---------- */
 .hero__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--preto); }
 .hero__bg > *, .hero__bg picture { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero__foto { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hero__foto { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; filter: saturate(0.78) brightness(0.92); } /* tons mais suaves, no tom da logo */
 
 /* Escurecimento para leitura (mais forte no celular, onde o texto cobre a foto toda) */
 .hero__sombra {
@@ -88,8 +88,8 @@
   width: min(96%, 520px);
   height: 2px;
   margin-top: var(--sp-5);
-  background: linear-gradient(90deg, transparent, var(--laranja-neon) 6%, var(--laranja-neon) 94%, transparent);
-  box-shadow: 0 0 8px rgb(255 122 26 / 0.6);
+  background: linear-gradient(90deg, transparent, var(--laranja) 6%, var(--laranja) 94%, transparent);
+  box-shadow: 0 0 8px rgb(236 105 27 / 0.35);
   transform-origin: center;
   animation: linha-in 0.8s var(--ease-out) 1.4s both;
 }
@@ -151,7 +151,7 @@
   animation: sobe 0.6s var(--ease-out) 2s both;
 }
 .hero__wall li + li::before { content: "•"; margin-inline: 0.5em; color: var(--laranja); }
-.hero__wall .is-accent { color: #F37A22; }
+.hero__wall .is-accent { color: var(--laranja); }
 
 /* ---------- STEP DANCE (pincel) ---------- */
 .hero__mirror {
@@ -166,19 +166,19 @@
   animation: sobe 0.6s var(--ease-out) 1.15s both;
 }
 .brush__step { color: #EDEDED; }
-.brush__dance { color: var(--laranja-neon); }
+.brush__dance { color: var(--laranja); }
 .brush__traco {
   position: absolute;
   left: 18%; right: -4%; bottom: -0.5em;
   width: 86%; height: 0.42em;
   z-index: -1;
-  fill: var(--laranja-neon);
+  fill: var(--laranja);
 }
 
 /* ---------- Indicador de rolagem ---------- */
 .hero__scroll {
   position: absolute;
-  left: 50%; bottom: calc(var(--sp-7) + env(safe-area-inset-bottom)); /* acima do letreiro, que morde a base */
+  left: 50%; bottom: calc(var(--sp-5) + env(safe-area-inset-bottom));
   display: grid; place-items: center;
   width: 44px; height: 56px;
   transform: translateX(-50%);
@@ -197,8 +197,7 @@
   width: 3px; height: 7px;
   margin-left: -1.5px;
   border-radius: 2px;
-  background: var(--laranja-neon);
-  box-shadow: var(--glow-sm);
+  background: var(--laranja);
   animation: rolar 1.8s var(--ease-in-out) 2.8s infinite;
 }
 .hero__scroll:hover .hero__scroll-mouse { border-color: var(--laranja-neon); }
@@ -325,7 +324,7 @@
     left: -0.5em; top: -0.6em; bottom: 0.4em;
     width: 0.06em;
     background: var(--laranja-neon);
-    box-shadow: 0 0 10px rgb(255 122 26 / 0.7);
+    box-shadow: 0 0 8px rgb(236 105 27 / 0.4);
   }
 
   /* Espelho da direita: x≈81%, y≈29% da foto */

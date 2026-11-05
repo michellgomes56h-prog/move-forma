@@ -1,0 +1,89 @@
+/* ===================== 5.5 MODALIDADES ===================== */
+.modalidades { background: linear-gradient(180deg, transparent, var(--grafite) 18%, var(--grafite) 82%, transparent); }
+
+.cards { display: grid; gap: var(--sp-5); }
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: clamp(var(--sp-5), 3vw, var(--sp-6));
+  border-radius: var(--raio-lg);
+  background: linear-gradient(160deg, var(--grafite-2), var(--preto) 120%);
+  box-shadow: inset 0 0 0 1px var(--borda), var(--sombra-card);
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out);
+}
+/* Borda que "acende" — só opacity */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1.5px var(--laranja), inset 0 0 40px rgb(236 105 27 / 0.1), 0 0 24px rgb(236 105 27 / 0.18);
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+.card:hover, .card.is-aceso, .card:focus-within { transform: translateY(-4px); }
+.card:hover::after, .card.is-aceso::after, .card:focus-within::after { opacity: 1; }
+
+.card__icone { width: 44px; height: 44px; color: var(--laranja); margin-bottom: var(--sp-2); }
+.card__titulo { font-size: var(--fs-lg); font-weight: var(--peso-ultra); font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; }
+.card__texto { color: var(--texto-suave); flex: 1; }
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 44px;
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--peso-black);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--laranja);
+  align-self: flex-start;
+}
+.card__link svg { width: 18px; height: 18px; transition: transform var(--dur-2) var(--ease-out); }
+.card__link:hover svg { transform: translateX(4px); }
+/* área de toque do card inteiro leva ao WhatsApp */
+.card__link::before { content: ""; position: absolute; inset: 0; }
+
+/* Destaque: Step Dance */
+.card--destaque {
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgb(236 105 27 / 0.22), transparent 60%),
+    linear-gradient(160deg, var(--grafite-2), var(--preto) 120%);
+}
+.card__brush {
+  font-size: clamp(2.6rem, 1.6rem + 4vw, 4.6rem);
+  transform: rotate(-5deg);
+  transform-origin: left bottom;
+  margin: var(--sp-2) 0 var(--sp-4);
+}
+.card__brush .brush__step { color: var(--branco); }
+.card__brush .brush__dance { color: var(--laranja); }
+.card--destaque .card__icone { display: none; } /* o pincel STEP DANCE faz o papel do ícone */
+.card--destaque .card__titulo { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* o pincel já mostra o nome */
+
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .card--destaque { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .card--destaque {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: var(--sp-7);
+    padding-block: var(--sp-7);
+  }
+
+  .card--destaque .card__brush { grid-column: 1; margin: 0; }
+  .card--destaque .card__texto { grid-column: 2; font-size: var(--fs-md); max-width: 44ch; }
+  .card--destaque .card__link { grid-column: 3; margin: 0; }
+}

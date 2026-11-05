@@ -1,0 +1,47 @@
+/* ===================== 5.6 COMO FUNCIONA ===================== */
+.passos__wrap { position: relative; --p: 0; }
+.passos__lista { display: grid; gap: var(--sp-7); position: relative; z-index: 1; }
+
+.passo { position: relative; display: grid; gap: var(--sp-3); padding-left: 76px; }
+.passo__num {
+  position: absolute;
+  left: 0; top: -6px;
+  display: grid; place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--preto);
+  box-shadow: inset 0 0 0 2px var(--borda-forte);
+  font-weight: var(--peso-ultra);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--texto-suave);
+  transition: box-shadow var(--dur-3), color var(--dur-3), background-color var(--dur-3);
+}
+.passo.is-ativo .passo__num { background: var(--laranja); color: var(--preto); box-shadow: 0 0 0 6px var(--laranja-10), var(--glow-sm); }
+.passo__icone { width: 36px; height: 36px; color: var(--laranja); }
+.passo__titulo { font-size: var(--fs-lg); font-weight: var(--peso-ultra); font-style: italic; text-transform: uppercase; }
+.passo__texto { color: var(--texto-suave); max-width: 34ch; }
+
+/* Trilho + progresso (desenha conforme a rolagem: só transform) */
+.passos__trilho {
+  position: absolute;
+  left: 27px; top: 22px; bottom: 40px;
+  width: 2px;
+  background: var(--borda-forte);
+}
+.passos__progresso {
+  position: absolute; inset: 0;
+  background: var(--laranja);
+  box-shadow: var(--glow-sm);
+  transform-origin: top;
+  transform: scaleY(var(--p));
+}
+
+@media (min-width: 900px) {
+  .passos__lista { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+  .passo { padding-left: 0; padding-top: 84px; }
+  .passo__num { top: 0; width: 64px; height: 64px; }
+  .passos__trilho { left: 32px; right: calc(33.333% - 32px); top: 31px; bottom: auto; width: auto; height: 2px; }
+  .passos__progresso { transform-origin: left; transform: scaleX(var(--p)); }
+}
+@media (prefers-reduced-motion: reduce) { .passos__wrap { --p: 1 !important; } }

@@ -7,12 +7,11 @@
 /* Seções (uma por arquivo, na ordem da página) */
 @import "./sections/header.css";
 @import "./sections/hero.css";
-@import "./sections/letreiro.css";
-/* @import "./sections/sobre.css"; */
-/* @import "./sections/modalidades.css"; */
-/* @import "./sections/como-funciona.css"; */
-/* @import "./sections/galeria.css"; */
-/* @import "./sections/cta.css"; */
-/* @import "./sections/localizacao.css"; */
-/* @import "./sections/rodape.css"; */
-/* @import "./sections/whatsapp-fab.css"; */
+@import "./sections/sobre.css";
+@import "./sections/modalidades.css";
+@import "./sections/passos.css";
+@import "./sections/galeria.css";
+@import "./sections/cta.css";
+@import "./sections/localizacao.css";
+@import "./sections/rodape.css";
+@import "./sections/fab.css";

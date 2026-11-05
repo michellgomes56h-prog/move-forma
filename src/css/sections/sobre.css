@@ -1,0 +1,30 @@
+/* ===================== 5.4 SOBRE ===================== */
+.sobre__grid { display: grid; gap: clamp(var(--sp-7), 6vw, var(--sp-9)); align-items: center; }
+.sobre__texto { display: grid; gap: var(--sp-5); justify-items: start; }
+.sobre__texto .btn { margin-top: var(--sp-2); }
+
+/* Foto com moldura de neon laranja */
+.sobre__foto { position: relative; margin: 0; isolation: isolate; }
+.sobre__foto::before {               /* moldura deslocada */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2px solid var(--laranja);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--glow-md), inset var(--glow-sm);
+  transform: translate(14px, 14px);
+}
+.sobre__foto img, .sobre__ph {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-card);
+}
+.sobre__ph { border-style: solid; border-color: var(--borda-forte); }
+
+@media (min-width: 900px) {
+  .sobre__grid { grid-template-columns: 1.1fr 0.9fr; }
+  .sobre__foto::before { transform: translate(22px, 22px); }
+}

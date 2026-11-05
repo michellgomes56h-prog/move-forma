@@ -38,26 +38,26 @@ if (existsSync(`${ORIG}/galeria`)) {
   for (const f of arquivos) await variantes(path.join(ORIG, 'galeria', f), `galeria-${String(i++).padStart(2, '0')}`, [480, 960, 1600]);
 }
 
-// 4) Marca: logo circular recortada do print do Instagram (anexo 2) + favicons + OG
-const insta = `${ORIG}/anexo2-instagram.png`;
-if (existsSync(insta)) {
-  const { data, info } = await sharp(insta).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-  let x0 = 1e9, y0 = 1e9, x1 = 0, y1 = 0;
-  for (let y = 0; y < info.height; y++) for (let x = 0; x < info.width; x++) {
-    const i = (y * info.width + x) * 3;
-    if (Math.abs(data[i] - 228) < 14 && Math.abs(data[i + 1] - 112) < 14 && Math.abs(data[i + 2] - 42) < 14) {
-      x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
-    }
-  }
-  const d = Math.min(x1 - x0, y1 - y0) + 1;
+// 4) Marca: logo quadrada oficial (MF + halteres) → logo circular, favicon e ícone do iPhone
+const quadrada = `${ORIG}/logo-quadrada.png`;
+if (existsSync(quadrada)) {
+  const { width: d } = await sharp(quadrada).metadata();
   const r = d / 2;
-  const mascara = Buffer.from(`<svg width="${d}" height="${d}"><circle cx="${r}" cy="${r}" r="${r - 0.5}" fill="#fff"/></svg>`);
-  const circ = await sharp(insta).extract({ left: x0, top: y0, width: d, height: d })
-    .composite([{ input: mascara, blend: 'dest-in' }]).png().toBuffer();
-  await sharp(circ).toFile(`${BRAND}/logo-circular.png`);
-  await sharp(circ).resize(32, 32).toFile('public/favicon-32.png');
-  await sharp(circ).resize(180, 180).flatten({ background: '#E8702A' }).toFile('public/apple-touch-icon.png');
-  console.log('✔ logo circular', d + 'px (recorte do print — trocar pelo arquivo original em alta)');
+  const mascara = Buffer.from(`<svg width="${d}" height="${d}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`);
+  const circ = await sharp(quadrada).composite([{ input: mascara, blend: 'dest-in' }]).png().toBuffer();
+  await sharp(circ).resize(512, 512).png({ compressionLevel: 9 }).toFile(`${BRAND}/logo-circular.png`);
+  await sharp(circ).resize(240, 240).webp({ quality: 88 }).toFile(`${BRAND}/logo-circular-240.webp`);
+  // Favicon: só o emblema "MF" (o texto some em 32px), num círculo laranja
+  const s = d / 1080; // coordenadas medidas na arte de 1080px
+  const emblema = await sharp(quadrada).extract({ left: Math.round(372 * s), top: Math.round(328 * s), width: Math.round(340 * s), height: Math.round(210 * s) }).toBuffer();
+  const icone = async (tam, redondo) => {
+    const fundo = Buffer.from(`<svg width="${tam}" height="${tam}">${redondo ? `<circle cx="${tam / 2}" cy="${tam / 2}" r="${tam / 2}" fill="#EC691B"/>` : `<rect width="${tam}" height="${tam}" fill="#EC691B"/>`}</svg>`);
+    const marca = await sharp(emblema).resize(Math.round(tam * 0.72)).toBuffer();
+    return sharp(fundo).composite([{ input: marca, gravity: 'center' }]).png();
+  };
+  await (await icone(32, true)).toFile('public/favicon-32.png');
+  await (await icone(180, false)).toFile('public/apple-touch-icon.png');
+  console.log('✔ logo circular 512px + favicon + apple-touch-icon');
 }
 
 const anexo1 = `${ORIG}/anexo1-hero.webp`;

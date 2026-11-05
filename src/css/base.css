@@ -90,3 +90,4 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     transition-duration: 0.01ms !important;
   }
 }
+.sem-rolagem { overflow: hidden; }

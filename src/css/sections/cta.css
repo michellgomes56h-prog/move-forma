@@ -1,0 +1,32 @@
+/* ===================== 5.8 CTA INTERMEDIÁRIO ===================== */
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(var(--sp-8), 8vw, var(--sp-9));
+  background:
+    radial-gradient(60% 120% at 0% 100%, rgb(255 255 255 / 0.12), transparent 60%),
+    radial-gradient(50% 120% at 100% 0%, rgb(0 0 0 / 0.18), transparent 60%),
+    var(--laranja);
+  color: var(--preto);
+}
+.cta::before {           /* linhas de velocidade sutis */
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(-62deg, transparent 0 46px, rgb(0 0 0 / 0.05) 46px 48px);
+  pointer-events: none;
+}
+.cta__inner { position: relative; display: grid; gap: var(--sp-6); justify-items: center; text-align: center; }
+.cta__titulo {
+  font-size: var(--fs-2xl);
+  font-weight: var(--peso-ultra);
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.02;
+  max-width: 20ch;
+}
+.cta__brush { font-family: var(--font-brush); font-style: normal; text-transform: none; font-weight: 400; color: var(--preto); white-space: nowrap; }
+.cta .btn--lg { --btn-h: 64px; }
+
+@media (min-width: 1024px) {
+  .cta__inner { grid-template-columns: 1fr auto; justify-items: start; text-align: left; align-items: center; }
+}
