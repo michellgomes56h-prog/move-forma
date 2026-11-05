@@ -178,7 +178,7 @@
 /* ---------- Indicador de rolagem ---------- */
 .hero__scroll {
   position: absolute;
-  left: 50%; bottom: calc(var(--sp-4) + env(safe-area-inset-bottom));
+  left: 50%; bottom: calc(var(--sp-7) + env(safe-area-inset-bottom)); /* acima do letreiro, que morde a base */
   display: grid; place-items: center;
   width: 44px; height: 56px;
   transform: translateX(-50%);
