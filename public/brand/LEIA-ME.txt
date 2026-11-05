@@ -1,0 +1,4 @@
+Coloque aqui os arquivos oficiais da logo (não redesenhar):
+- logo-horizontal.svg (preferível) ou logo-horizontal.png  → versão do anexo 1 (bonequinho + MOVE FORMA), fundo transparente
+- logo-circular.png  → versão do anexo 2 (círculo laranja), mínimo 512x512
+A partir da logo circular serão gerados: favicon, apple-touch-icon e og-image.jpg (1200x630).

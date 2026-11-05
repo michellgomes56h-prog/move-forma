@@ -1,0 +1,130 @@
+/* =====================================================================
+   MOVE FORMA — Design tokens
+   Fonte única da verdade para cor, tipografia, espaço, raio, brilho
+   e movimento. Nenhuma seção deve usar hex "solto": use estas variáveis.
+   ===================================================================== */
+
+:root {
+  /* ---------- Cores da marca (briefing) ---------- */
+  --laranja: #E8702A;        /* tom oficial, fundo da logo circular (anexo 2) */
+  --laranja-neon: #FF7A1A;   /* brilhos, glow, hover */
+  --laranja-escuro: #B9521A; /* sombras, gradientes — NÃO usar em texto (contraste 4.0:1) */
+  --preto: #0B0B0C;
+  --grafite: #151517;
+  --grafite-2: #1E1E21;
+  --branco: #F5F5F5;
+  --cinza-texto: #A1A1AA;
+
+  /* ---------- Derivadas (mesma paleta, só com alpha) ---------- */
+  --laranja-10: rgb(232 112 42 / 0.10);
+  --laranja-20: rgb(232 112 42 / 0.20);
+  --laranja-40: rgb(232 112 42 / 0.40);
+  --neon-60: rgb(255 122 26 / 0.60);
+  --branco-08: rgb(245 245 245 / 0.08);
+  --branco-14: rgb(245 245 245 / 0.14);
+  --branco-60: rgb(245 245 245 / 0.60);
+  --preto-70: rgb(11 11 12 / 0.70);
+
+  /* ---------- Papéis semânticos ----------
+     Contraste (WCAG) medido:
+       branco       sobre preto ........ 18.05:1  ✔
+       cinza-texto  sobre preto ........  7.68:1  ✔
+       cinza-texto  sobre grafite-2 ....  6.49:1  ✔
+       laranja      sobre preto ........  6.35:1  ✔ (texto de destaque OK)
+       laranja      sobre grafite-2 ....  5.37:1  ✔
+       preto        sobre laranja ......  6.35:1  ✔ → texto de botão/faixa laranja é PRETO
+       branco       sobre laranja ......  2.84:1  ✘ → nunca texto branco em fundo laranja
+       laranja-escuro sobre preto ......  4.01:1  ✘ → só decorativo
+  */
+  --bg: var(--preto);
+  --bg-elev-1: var(--grafite);
+  --bg-elev-2: var(--grafite-2);
+  --texto: var(--branco);
+  --texto-suave: var(--cinza-texto);
+  --destaque: var(--laranja);
+  --on-destaque: var(--preto);
+  --borda: var(--branco-08);
+  --borda-forte: var(--branco-14);
+  --foco: var(--laranja-neon);
+
+  /* ---------- Tipografia (3 famílias + 1 acento) ---------- */
+  --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-condensed: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-brush: "Permanent Marker", "Comic Sans MS", cursive; /* só em STEP DANCE + 1 lugar */
+
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-semi: 600;
+  --peso-black: 800;
+  --peso-ultra: 900;
+
+  /* Escala fluida (mobile 360 → desktop 1440). Corpo nunca < 16px. */
+  --fs-xs: 0.8125rem;                                   /* 13px — só rótulos em caixa alta */
+  --fs-sm: 0.875rem;                                    /* 14px */
+  --fs-base: 1rem;                                      /* 16px — corpo */
+  --fs-md: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);   /* 17 → 19 */
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);      /* 20 → 24 */
+  --fs-xl: clamp(1.625rem, 1.3rem + 1.4vw, 2.5rem);     /* 26 → 40 */
+  --fs-2xl: clamp(2.125rem, 1.5rem + 2.8vw, 3.75rem);   /* 34 → 60 */
+  --fs-3xl: clamp(2.75rem, 1.6rem + 5vw, 5.5rem);       /* 44 → 88 */
+
+  --lh-tight: 1.02;
+  --lh-title: 1.1;
+  --lh-body: 1.6;
+
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.18em;    /* rótulos */
+  --tracking-ultra: 0.42em;   /* "TREINAMENTO PERSONALIZADO" */
+
+  /* ---------- Espaço (base 4px) ---------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --secao-y: clamp(4rem, 2.5rem + 6vw, 8rem);  /* respiro vertical entre seções */
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --container: 1240px;
+  --header-h: 72px;
+
+  /* ---------- Raio / borda ---------- */
+  --raio-sm: 6px;
+  --raio-md: 12px;
+  --raio-lg: 20px;
+  --raio-pill: 999px;
+  --borda-fina: 1px;
+
+  /* ---------- Brilho neon (sutil) ---------- */
+  --glow-sm: 0 0 6px rgb(255 122 26 / 0.45), 0 0 18px rgb(255 122 26 / 0.18);
+  --glow-md: 0 0 10px rgb(255 122 26 / 0.55), 0 0 32px rgb(255 122 26 / 0.25);
+  --glow-lg: 0 0 14px rgb(255 122 26 / 0.65), 0 0 48px rgb(255 122 26 / 0.30), 0 0 96px rgb(232 112 42 / 0.18);
+  --glow-text: 0 0 8px rgb(255 122 26 / 0.55), 0 0 24px rgb(255 122 26 / 0.25);
+  --glow-branco: 0 0 6px rgb(255 255 255 / 0.70), 0 0 20px rgb(255 255 255 / 0.25);
+  --sombra-card: 0 18px 40px -18px rgb(0 0 0 / 0.8);
+
+  /* ---------- Movimento (só transform/opacity) ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.1, 1.2);
+  --dur-1: 150ms;
+  --dur-2: 280ms;
+  --dur-3: 520ms;
+  --dur-4: 900ms;
+
+  /* ---------- Camadas ---------- */
+  --z-base: 1;
+  --z-header: 50;
+  --z-fab: 60;
+  --z-menu: 70;
+  --z-modal: 100;
+
+  color-scheme: dark;
+}
+
+@media (min-width: 1024px) {
+  :root { --header-h: 84px; }
+}

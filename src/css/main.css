@@ -1,0 +1,18 @@
+/* Ponto de entrada do CSS — ordem importa */
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./components.css";
+
+/* Seções (uma por arquivo, na ordem da página) */
+/* @import "./sections/header.css"; */
+/* @import "./sections/hero.css"; */
+/* @import "./sections/marquee.css"; */
+/* @import "./sections/sobre.css"; */
+/* @import "./sections/modalidades.css"; */
+/* @import "./sections/como-funciona.css"; */
+/* @import "./sections/galeria.css"; */
+/* @import "./sections/cta.css"; */
+/* @import "./sections/localizacao.css"; */
+/* @import "./sections/rodape.css"; */
+/* @import "./sections/whatsapp-fab.css"; */

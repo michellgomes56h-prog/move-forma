@@ -1,0 +1,98 @@
+/* Componentes reutilizados em várias seções */
+
+/* ---------- Botões ---------- */
+.btn {
+  --btn-h: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: var(--btn-h);   /* área de toque ≥ 44px */
+  padding: 0 var(--sp-6);
+  border-radius: var(--raio-pill);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--peso-black);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: relative;
+  isolation: isolate;
+  transition: transform var(--dur-2) var(--ease-out), background-color var(--dur-2), color var(--dur-2), box-shadow var(--dur-2);
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn:active { transform: scale(0.97); }
+
+/* Primário: laranja sólido + texto PRETO (contraste 6.3:1) */
+.btn--primary {
+  background: var(--laranja);
+  color: var(--on-destaque);
+  box-shadow: var(--glow-sm);
+}
+.btn--primary:hover { background: var(--laranja-neon); box-shadow: var(--glow-md); transform: translateY(-2px); }
+
+/* Contorno: borda branca fina, acende laranja no hover */
+.btn--ghost {
+  color: var(--texto);
+  box-shadow: inset 0 0 0 1.5px var(--branco-60);
+}
+.btn--ghost:hover { color: var(--laranja-neon); box-shadow: inset 0 0 0 1.5px var(--laranja-neon), var(--glow-sm); transform: translateY(-2px); }
+
+.btn--lg { --btn-h: 60px; padding: 0 var(--sp-7); font-size: var(--fs-base); }
+
+/* ---------- Rótulo de seção ("eyebrow") ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--laranja);
+}
+.eyebrow::before {
+  content: "";
+  width: 28px; height: 2px;
+  background: var(--laranja);
+  box-shadow: var(--glow-sm);
+}
+
+/* ---------- Título de seção ---------- */
+.titulo-secao {
+  font-size: var(--fs-2xl);
+  font-weight: var(--peso-ultra);
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: var(--lh-tight);
+}
+.titulo-secao em { font-style: inherit; color: var(--laranja); }
+
+/* ---------- Linha neon divisória ---------- */
+.linha-neon {
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--laranja-neon) 20%, var(--laranja-neon) 80%, transparent);
+  box-shadow: var(--glow-sm);
+}
+
+/* ---------- Revelação ao rolar (IntersectionObserver adiciona .is-visible) ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-4) var(--ease-out), transform var(--dur-4) var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+/* ---------- Placeholder (enquanto faltam fotos/logo reais) ---------- */
+.placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgb(255 255 255 / 0.025) 14px 15px),
+    var(--grafite-2);
+  color: var(--cinza-texto);
+  font-size: var(--fs-xs);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px dashed var(--borda-forte);
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Move Forma — Tokens (dev)</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/src/css/main.css" />
+  <style>
+    body { padding-block: var(--sp-8); }
+    .tk-grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .tk-sw { border-radius: var(--raio-md); overflow: hidden; border: 1px solid var(--borda); background: var(--grafite); }
+    .tk-sw div { height: 84px; }
+    .tk-sw p { padding: var(--sp-3); font-size: var(--fs-xs); color: var(--texto-suave); line-height: 1.4; }
+    .tk-sw b { display: block; color: var(--texto); font-size: var(--fs-sm); }
+    section { margin-block: var(--sp-8); }
+    h2.tk { font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--texto-suave); font-weight: 600; margin-bottom: var(--sp-5); border-bottom: 1px solid var(--borda); padding-bottom: var(--sp-3); }
+    .tk-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+    .tk-type > * + * { margin-top: var(--sp-5); }
+    .tk-label { font-size: var(--fs-xs); color: var(--texto-suave); letter-spacing: .08em; }
+    .demo-logo { font-weight: 900; font-style: italic; font-size: var(--fs-3xl); line-height: 1; letter-spacing: -0.02em; }
+    .demo-logo span { color: var(--laranja); }
+    .demo-sub { font-weight: 400; letter-spacing: var(--tracking-ultra); font-size: var(--fs-sm); text-transform: uppercase; }
+    .demo-wall { font-family: var(--font-condensed); font-size: var(--fs-2xl); line-height: .95; }
+    .demo-wall .o { color: var(--laranja); text-shadow: var(--glow-text); }
+    .demo-brush { font-family: var(--font-brush); font-size: var(--fs-2xl); line-height: 1; transform: rotate(-4deg); display: inline-block; }
+    .demo-brush span { color: var(--laranja); }
+    .glow-box { width: 140px; height: 80px; border-radius: var(--raio-md); border: 1.5px solid var(--laranja-neon); display: grid; place-items: center; font-size: var(--fs-xs); color: var(--texto-suave); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <p class="eyebrow">Sistema visual · v1</p>
+    <h1 class="titulo-secao" style="margin-top:var(--sp-4)">Move <em>Forma</em> — tokens</h1>
+
+    <section>
+      <h2 class="tk">Cores da marca</h2>
+      <div class="tk-grid">
+        <div class="tk-sw"><div style="background:var(--laranja)"></div><p><b>--laranja</b>#E8702A · oficial</p></div>
+        <div class="tk-sw"><div style="background:var(--laranja-neon);box-shadow:var(--glow-md)"></div><p><b>--laranja-neon</b>#FF7A1A · glow/hover</p></div>
+        <div class="tk-sw"><div style="background:var(--laranja-escuro)"></div><p><b>--laranja-escuro</b>#B9521A · sombras</p></div>
+        <div class="tk-sw"><div style="background:var(--preto)"></div><p><b>--preto</b>#0B0B0C · fundo</p></div>
+        <div class="tk-sw"><div style="background:var(--grafite)"></div><p><b>--grafite</b>#151517</p></div>
+        <div class="tk-sw"><div style="background:var(--grafite-2)"></div><p><b>--grafite-2</b>#1E1E21 · cards</p></div>
+        <div class="tk-sw"><div style="background:var(--branco)"></div><p><b>--branco</b>#F5F5F5 · texto</p></div>
+        <div class="tk-sw"><div style="background:var(--cinza-texto)"></div><p><b>--cinza-texto</b>#A1A1AA · apoio</p></div>
+      </div>
+      <p class="tk-label" style="margin-top:var(--sp-4)">Contraste: branco/preto 18:1 · cinza/preto 7,7:1 · laranja/preto 6,4:1 · <b style="color:var(--laranja)">texto em botão laranja = preto (6,4:1)</b> — branco sobre laranja reprova (2,8:1).</p>
+    </section>
+
+    <section class="tk-type">
+      <h2 class="tk">Tipografia</h2>
+      <div><p class="tk-label">Montserrat 900 itálico — títulos de impacto</p><p class="demo-logo">MOVE <span>FORMA</span></p></div>
+      <div><p class="tk-label">Montserrat 400 · tracking 0.42em — subtítulos espaçados</p><p class="demo-sub">Treinamento personalizado</p></div>
+      <div><p class="tk-label">Bebas Neue — palavras de parede</p><p class="demo-wall">FOCO<br>DISCIPLINA<br><span class="o">EVOLUÇÃO</span></p></div>
+      <div><p class="tk-label">Permanent Marker — acento pincel (STEP DANCE + 1 lugar)</p><p class="demo-brush">STEP <span>DANCE</span></p></div>
+      <div><p class="tk-label">Montserrat 400 · 16px — corpo</p><p style="max-width:60ch;color:var(--texto-suave)">Ambiente exclusivo para atendimento personalizado. Musculação para saúde, emagrecimento e hipertrofia, com acompanhamento de perto em cada treino.</p></div>
+    </section>
+
+    <section>
+      <h2 class="tk">Componentes base</h2>
+      <div class="tk-row">
+        <a class="btn btn--primary" href="#" data-wa>Agendar meu horário</a>
+        <a class="btn btn--ghost" href="#">Conhecer o espaço</a>
+        <span class="eyebrow">Rótulo de seção</span>
+      </div>
+      <hr class="linha-neon" style="margin-block:var(--sp-6);max-width:320px" />
+      <div class="tk-row">
+        <div class="glow-box" style="box-shadow:var(--glow-sm)">glow-sm</div>
+        <div class="glow-box" style="box-shadow:var(--glow-md)">glow-md</div>
+        <div class="glow-box" style="box-shadow:var(--glow-lg)">glow-lg</div>
+        <div class="placeholder" style="width:200px;height:120px;border-radius:var(--raio-md)">Foto da academia</div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
