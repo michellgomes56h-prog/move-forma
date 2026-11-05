@@ -22,16 +22,164 @@
   <meta property="og:description" content="Ambiente exclusivo para atendimento personalizado. Musculação para saúde, emagrecimento, hipertrofia e Step Dance. Agende seu horário." />
   <meta property="og:image" content="/brand/og-image.jpg" /><!-- TODO: gerar 1200x630 a partir da logo circular -->
 
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="/src/css/main.css" />
   <script type="module" src="/src/main.js"></script>
 </head>
 <body>
+  <!-- Sprite de ícones (traço fino, herdam currentColor) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path fill="currentColor" d="M8.6 7.8c.2-.4.4-.4.7-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.3 0 .6.5.9 1.2 1.7 2 2.3.6.4 1 .6 1.3.7.2.1.4 0 .5-.1l.8-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.4.4 0 .5-.1 1.2-.6 1.6-.5.4-1.3.8-2.3.6-1.3-.3-2.9-1-4.4-2.5-1.6-1.6-2.4-3.3-2.6-4.4-.1-1 .3-1.6.7-2z"/></symbol>
+    <symbol id="i-halter" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="8" width="4" height="16" rx="1.2"/><rect x="21.5" y="8" width="4" height="16" rx="1.2"/><rect x="2.5" y="11.5" width="4" height="9" rx="1"/><rect x="25.5" y="11.5" width="4" height="9" rx="1"/><path d="M10.5 16h11"/></g></symbol>
+    <symbol id="i-tenis" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21.5V15l3-5 4 2 3-3.5h3l4.5 5.5 6.2 1.6A3.5 3.5 0 0 1 29 19v2.5z"/><path d="M3 21.5h26v1.8a1.7 1.7 0 0 1-1.7 1.7H4.7A1.7 1.7 0 0 1 3 23.3z"/><path d="M13.5 12.5l2.5-1.3M15.2 14.8l2.5-1.3M17 17h5"/></g></symbol>
+    <symbol id="i-coracao" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26.5S5.5 20.3 3.6 13.6A6.3 6.3 0 0 1 16 9.2a6.3 6.3 0 0 1 12.4 4.4C26.5 20.3 16 26.5 16 26.5z"/><path d="M4.5 16.5h6l2-3.5 3 7 2.5-5 1.5 1.5h8"/></g></symbol>
+    <symbol id="i-grafico" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v24h24"/><path d="M9 21l5.5-5.5 4 4L27 11"/><path d="M21 11h6v6"/></g></symbol>
+  </svg>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- 5.1 Header -->
+  <header class="header" data-header>
+    <div class="header__inner container">
+      <a class="header__logo" href="#inicio" aria-label="Move Forma — início">
+        <!-- TROCAR LOGO: quando existir /public/brand/logo-horizontal.svg, substitua o <span> abaixo por:
+             <img src="/brand/logo-horizontal.svg" alt="" width="180" height="40" /> -->
+        <span class="wordmark wordmark--sm" aria-hidden="true">MOVE <b>FORMA</b></span>
+      </a>
+
+      <nav class="header__nav" aria-label="Principal">
+        <ul role="list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#fotos">Fotos</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary btn--sm header__cta" data-wa="padrao" href="#">Agendar</a>
+
+      <button class="header__burger" type="button" aria-expanded="false" aria-controls="menu-mobile" data-burger>
+        <span class="sr-only" data-burger-label>Abrir menu</span>
+        <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu mobile (tela cheia) -->
+  <div class="menu-mobile" id="menu-mobile" data-menu hidden>
+    <nav aria-label="Menu">
+      <ul role="list" class="menu-mobile__links">
+        <li style="--i:0"><a href="#inicio">Início</a></li>
+        <li style="--i:1"><a href="#sobre">Sobre</a></li>
+        <li style="--i:2"><a href="#modalidades">Modalidades</a></li>
+        <li style="--i:3"><a href="#fotos">Fotos</a></li>
+        <li style="--i:4"><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+    <div class="menu-mobile__footer">
+      <a class="btn btn--primary btn--lg" data-wa="padrao" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+        Agendar no WhatsApp
+      </a>
+      <p class="menu-mobile__info">Rua Rubens Kraemer, 220 · Giruá/RS<br /><a href="https://instagram.com/moveforma_" target="_blank" rel="noopener">@moveforma_</a></p>
+    </div>
+  </div>
 
   <main id="conteudo">
-    <!-- 5.2 Hero ............ #inicio -->
+    <!-- 5.2 Hero -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero__bg" aria-hidden="true">
+        <!-- FOTO DA HERO: quando existir a foto da academia, descomente o <picture> abaixo
+             (e o <link rel="preload"> da imagem no <head>). O cenário em CSS continua por cima, escurecendo.
+        <picture>
+          <source type="image/avif" srcset="/fotos/hero-800.avif 800w, /fotos/hero-1600.avif 1600w, /fotos/hero-2400.avif 2400w" sizes="100vw" />
+          <source type="image/webp" srcset="/fotos/hero-800.webp 800w, /fotos/hero-1600.webp 1600w, /fotos/hero-2400.webp 2400w" sizes="100vw" />
+          <img class="hero__foto" src="/fotos/hero-1600.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async" />
+        </picture>
+        -->
+        <div class="hero__ambient"></div>
+        <!-- Cenário em 2 variantes: .v-p (celular/tablet, retrato) e .v-l (desktop, paisagem) -->
+        <!-- Arestas da sala (perspectiva) -->
+        <svg class="hero__edges" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path class="v-p" d="M0 0L5 25M100 0L95 25M0 100L5 62M100 100L95 62M5 25H95V62H5z" />
+          <path class="v-l" d="M0 0L18 26M100 0L82 26M0 100L18 62M100 100L82 62M18 26H82V62H18z" />
+        </svg>
+        <!-- Neon branco do teto em forma de quadrado -->
+        <svg class="hero__ceiling" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <g class="v-p">
+            <path d="M8 10.5H92L83.9 17H16.1z" />
+            <path d="M18 12.5H82L79 15.5H21z" />
+            <path class="refl" d="M18 99H82L74 88H26z" />
+          </g>
+          <g class="v-l">
+            <path d="M10 11H90L75.5 23H24.5z" />
+            <path d="M20 14H80L73.5 20.5H26.5z" />
+            <path class="refl" d="M22 99H78L70 88H30z" />
+          </g>
+        </svg>
+        <!-- Neon laranja: cantos da parede do fundo, rodapé e reflexo no chão -->
+        <svg class="hero__neon" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="g-refl" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FF7A1A" stop-opacity=".55" />
+              <stop offset="1" stop-color="#FF7A1A" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <g class="v-p">
+            <path class="forte" d="M5 26V61.5M95 26V61.5" />
+            <path class="base" d="M5 62H95M5 62L1 100M95 62L99 100" />
+            <path class="refl" d="M5 62.5V86M95 62.5V86" stroke="url(#g-refl)" />
+          </g>
+          <g class="v-l">
+            <path class="forte" d="M18 27V61.5M82 27V61.5" />
+            <path class="base" d="M18 62H82M18 62L4 96M82 62L96 96" />
+            <path class="refl" d="M18 62.5V86M82 62.5V86" stroke="url(#g-refl)" />
+          </g>
+        </svg>
+        <div class="hero__floor"></div>
+      </div>
+
+      <div class="hero__content">
+        <!-- Espelho da direita: STEP DANCE (no celular vira selo acima da logo) -->
+        <div class="hero__mirror">
+          <p class="brush"><span class="brush__step">STEP</span> <span class="brush__dance">DANCE<svg class="brush__traco" viewBox="0 0 260 44" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30C52 17 128 11 224 13c18 0 32 4 30 11-2 6-14 6-30 6-70 1-138 5-206 14C8 45 0 37 4 30z"/></svg></span></p>
+        </div>
+
+        <h1 class="hero__titulo" id="hero-titulo">
+          <!-- TROCAR LOGO: quando existir /public/brand/logo-horizontal.svg, substitua o <span class="wordmark"> por:
+               <img class="hero__logo-img" src="/brand/logo-horizontal.svg" alt="Move Forma" width="720" height="160" fetchpriority="high" /> -->
+          <span class="wordmark wordmark--hero"><span class="wordmark__move">MOVE</span> <b>FORMA</b></span>
+          <span class="hero__sub" data-split>Treinamento personalizado</span>
+        </h1>
+        <span class="hero__linha" aria-hidden="true"></span>
+
+        <ul class="hero__icons" role="list">
+          <li style="--i:0"><svg aria-hidden="true"><use href="#i-halter" /></svg><span>Treino personalizado</span></li>
+          <li style="--i:1"><svg aria-hidden="true"><use href="#i-tenis" /></svg><span>Step Dance</span></li>
+          <li style="--i:2"><svg aria-hidden="true"><use href="#i-coracao" /></svg><span>Saúde e <span class="nw">bem-estar</span></span></li>
+          <li style="--i:3"><svg aria-hidden="true"><use href="#i-grafico" /></svg><span>Resultados reais</span></li>
+        </ul>
+
+        <div class="hero__ctas">
+          <a class="btn btn--primary btn--lg" data-wa="padrao" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+            Agendar meu horário
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#fotos">Conhecer o espaço</a>
+        </div>
+
+        <!-- Parede da esquerda: FOCO / DISCIPLINA / EVOLUÇÃO (no celular vira uma linha) -->
+        <ul class="hero__wall" role="list" aria-label="Nossos valores">
+          <li>Foco</li>
+          <li>Disciplina</li>
+          <li class="is-accent">Evolução</li>
+        </ul>
+      </div>
+
+      <a class="hero__scroll" href="#sobre" aria-label="Rolar para a próxima seção">
+        <span class="hero__scroll-mouse" aria-hidden="true"></span>
+      </a>
+    </section>
     <!-- 5.3 Letreiro ........ (sem âncora) -->
     <!-- 5.4 Sobre ........... #sobre -->
     <!-- 5.5 Modalidades ..... #modalidades -->

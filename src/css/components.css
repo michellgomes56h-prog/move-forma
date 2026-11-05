@@ -38,7 +38,8 @@
 }
 .btn--ghost:hover { color: var(--laranja-neon); box-shadow: inset 0 0 0 1.5px var(--laranja-neon), var(--glow-sm); transform: translateY(-2px); }
 
-.btn--lg { --btn-h: 60px; padding: 0 var(--sp-7); font-size: var(--fs-base); }
+.btn--lg { --btn-h: 60px; padding: 0 clamp(var(--sp-5), 4vw, var(--sp-7)); font-size: clamp(var(--fs-sm), 0.8rem + 0.4vw, var(--fs-base)); }
+.btn { max-width: 100%; }
 
 /* ---------- Rótulo de seção ("eyebrow") ---------- */
 .eyebrow {

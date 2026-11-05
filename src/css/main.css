@@ -5,8 +5,8 @@
 @import "./components.css";
 
 /* Seções (uma por arquivo, na ordem da página) */
-/* @import "./sections/header.css"; */
-/* @import "./sections/hero.css"; */
+@import "./sections/header.css";
+@import "./sections/hero.css";
 /* @import "./sections/marquee.css"; */
 /* @import "./sections/sobre.css"; */
 /* @import "./sections/modalidades.css"; */
