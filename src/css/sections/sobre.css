@@ -10,9 +10,8 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  border: 2px solid var(--laranja);
+  border: 1.5px solid var(--laranja);
   border-radius: var(--raio-lg);
-  box-shadow: var(--glow-md), inset var(--glow-sm);
   transform: translate(14px, 14px);
 }
 .sobre__foto img, .sobre__ph {

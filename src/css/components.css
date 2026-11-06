@@ -50,7 +50,7 @@
   font-weight: var(--peso-semi);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--laranja);
+  color: var(--branco);
 }
 .eyebrow::before {
   content: "";
@@ -109,15 +109,15 @@
 .checklist svg {
   width: 26px; height: 26px; padding: 4px; flex: none;
   border-radius: 50%;
-  color: var(--laranja);
-  background: var(--laranja-10);
-  box-shadow: inset 0 0 0 1px var(--laranja-40);
+  color: var(--preto);
+  background: var(--laranja);
 }
 
 /* Botão escuro (para usar sobre fundo laranja) */
 .btn--escuro { background: var(--preto); color: var(--branco); box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6); }
 .btn--escuro:hover { background: var(--grafite-2); transform: translateY(-2px); }
 .btn--escuro svg { color: var(--laranja); }
+.btn--primary { box-shadow: none; }
 
 /* Pincel (STEP DANCE) reutilizável */
 .brush { font-family: var(--font-brush); line-height: 1; }

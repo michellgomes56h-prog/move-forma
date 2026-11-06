@@ -4,15 +4,14 @@
   overflow: hidden;
   padding-block: clamp(var(--sp-8), 8vw, var(--sp-9));
   background:
-    radial-gradient(60% 120% at 0% 100%, rgb(255 255 255 / 0.12), transparent 60%),
-    radial-gradient(50% 120% at 100% 0%, rgb(0 0 0 / 0.18), transparent 60%),
-    var(--laranja);
+    radial-gradient(50% 120% at 100% 0%, rgb(242 150 96 / 0.28), transparent 65%),
+    var(--branco);
   color: var(--preto);
 }
 .cta::before {           /* linhas de velocidade sutis */
   content: "";
   position: absolute; inset: 0;
-  background: repeating-linear-gradient(-62deg, transparent 0 46px, rgb(0 0 0 / 0.05) 46px 48px);
+  background: repeating-linear-gradient(-62deg, transparent 0 46px, rgb(0 0 0 / 0.035) 46px 48px);
   pointer-events: none;
 }
 .cta__inner { position: relative; display: grid; gap: var(--sp-6); justify-items: center; text-align: center; }
@@ -24,7 +23,14 @@
   line-height: 1.02;
   max-width: 20ch;
 }
-.cta__brush { font-family: var(--font-brush); font-style: normal; text-transform: none; font-weight: 400; color: var(--preto); white-space: nowrap; }
+.cta__brush { position: relative; z-index: 0; font-family: var(--font-brush); font-style: normal; text-transform: none; font-weight: 400; color: var(--preto); white-space: nowrap; }
+.cta__brush::after { /* traço de pincel laranja claro sob "uma mensagem." */
+  content: ""; position: absolute; z-index: -1;
+  left: -0.1em; right: -0.15em; bottom: 0.02em; height: 0.42em;
+  background: var(--laranja);
+  border-radius: 0.3em 0.1em 0.4em 0.1em;
+  transform: rotate(-1.5deg);
+}
 .cta .btn--lg { --btn-h: 64px; }
 
 @media (min-width: 1024px) {

@@ -6,9 +6,9 @@
 
 :root {
   /* ---------- Cores da marca (briefing) ---------- */
-  --laranja: #E8702A;        /* tom oficial, fundo da logo circular (anexo 2) */
-  --laranja-neon: #F07A33;   /* hover e brilhos (só um pouco mais claro, sem estourar) */
-  --laranja-escuro: #B8501A; /* sombras, gradientes — NÃO usar em texto */
+  --laranja: #F29660;        /* laranja CLARO da marca (pêssego): destaque sem pesar */
+  --laranja-neon: #F6AE82;   /* hover (ainda mais claro) */
+  --laranja-escuro: #D97A45; /* sombras, gradientes */
   --preto: #0B0B0C;
   --grafite: #151517;
   --grafite-2: #1E1E21;
@@ -16,10 +16,10 @@
   --cinza-texto: #A1A1AA;
 
   /* ---------- Derivadas (mesma paleta, só com alpha) ---------- */
-  --laranja-10: rgb(236 105 27 / 0.10);
-  --laranja-20: rgb(236 105 27 / 0.20);
-  --laranja-40: rgb(236 105 27 / 0.40);
-  --neon-60: rgb(240 122 51 / 0.60);
+  --laranja-10: rgb(242 150 96 / 0.10);
+  --laranja-20: rgb(242 150 96 / 0.20);
+  --laranja-40: rgb(242 150 96 / 0.40);
+  --neon-60: rgb(246 174 130 / 0.60);
   --branco-08: rgb(245 245 245 / 0.08);
   --branco-14: rgb(245 245 245 / 0.14);
   --branco-60: rgb(245 245 245 / 0.60);
@@ -29,11 +29,9 @@
      Contraste (WCAG) medido:
        branco       sobre preto ........ 18.05:1  ✔
        cinza-texto  sobre preto ........  7.68:1  ✔
-       cinza-texto  sobre grafite-2 ....  6.49:1  ✔
-       laranja      sobre preto ........  6.19:1  ✔ (texto de destaque OK)
-       laranja      sobre grafite-2 ....  5.23:1  ✔
-       preto        sobre laranja ......  6.19:1  ✔ → texto de botão/faixa laranja é PRETO
-       branco       sobre laranja ......  2.92:1  ✘ → nunca texto branco pequeno em fundo laranja
+       laranja      sobre preto ........  8.72:1  ✔
+       preto        sobre laranja ......  8.72:1  ✔ → texto de botão laranja é PRETO
+       laranja      sobre branco .......  2.07:1  ✘ → nunca texto laranja em fundo branco
   */
   --bg: var(--preto);
   --bg-elev-1: var(--grafite);
@@ -97,11 +95,11 @@
   --raio-pill: 999px;
   --borda-fina: 1px;
 
-  /* ---------- Brilho neon (bem sutil, no tom da logo) ---------- */
-  --glow-sm: 0 0 6px rgb(236 105 27 / 0.28), 0 0 16px rgb(236 105 27 / 0.12);
-  --glow-md: 0 0 10px rgb(236 105 27 / 0.32), 0 0 28px rgb(236 105 27 / 0.14);
-  --glow-lg: 0 0 14px rgb(236 105 27 / 0.38), 0 0 44px rgb(236 105 27 / 0.16);
-  --glow-text: 0 0 10px rgb(236 105 27 / 0.30);
+  /* ---------- Brilho (bem leve) ---------- */
+  --glow-sm: 0 0 10px rgb(242 150 96 / 0.16);
+  --glow-md: 0 0 18px rgb(242 150 96 / 0.18);
+  --glow-lg: 0 0 28px rgb(242 150 96 / 0.2);
+  --glow-text: 0 0 12px rgb(242 150 96 / 0.18);
   --glow-branco: 0 0 6px rgb(255 255 255 / 0.5), 0 0 18px rgb(255 255 255 / 0.18);
   --sombra-card: 0 18px 40px -18px rgb(0 0 0 / 0.8);
 

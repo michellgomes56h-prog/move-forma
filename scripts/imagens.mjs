@@ -39,8 +39,16 @@ if (existsSync(`${ORIG}/galeria`)) {
 }
 
 // 4) Marca: logo quadrada oficial (MF + halteres) → logo circular, favicon e ícone do iPhone
-const quadrada = `${ORIG}/logo-quadrada.png`;
-if (existsSync(quadrada)) {
+const LARANJA = '#F29660'; // laranja claro da marca (mesmo de src/css/tokens.css)
+const original = `${ORIG}/logo-quadrada.png`;
+if (existsSync(original)) {
+  // Recolore: mantém o branco da arte e troca o fundo laranja original pelo laranja claro
+  const meta0 = await sharp(original).metadata();
+  const alfaBranco = await sharp(original).removeAlpha().greyscale().linear(255 / (255 - 165), -165 * (255 / (255 - 165))).toColourspace('b-w').raw().toBuffer();
+  const branco = await sharp({ create: { width: meta0.width, height: meta0.height, channels: 3, background: '#FFFFFF' } })
+    .joinChannel(alfaBranco, { raw: { width: meta0.width, height: meta0.height, channels: 1 } }).png().toBuffer();
+  const quadrada = await sharp({ create: { width: meta0.width, height: meta0.height, channels: 3, background: LARANJA } })
+    .composite([{ input: branco }]).png().toBuffer();
   const { width: d } = await sharp(quadrada).metadata();
   const r = d / 2;
   const mascara = Buffer.from(`<svg width="${d}" height="${d}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`);
@@ -51,7 +59,7 @@ if (existsSync(quadrada)) {
   const s = d / 1080; // coordenadas medidas na arte de 1080px
   const emblema = await sharp(quadrada).extract({ left: Math.round(372 * s), top: Math.round(328 * s), width: Math.round(340 * s), height: Math.round(210 * s) }).toBuffer();
   const icone = async (tam, redondo) => {
-    const fundo = Buffer.from(`<svg width="${tam}" height="${tam}">${redondo ? `<circle cx="${tam / 2}" cy="${tam / 2}" r="${tam / 2}" fill="#EC691B"/>` : `<rect width="${tam}" height="${tam}" fill="#EC691B"/>`}</svg>`);
+    const fundo = Buffer.from(`<svg width="${tam}" height="${tam}">${redondo ? `<circle cx="${tam / 2}" cy="${tam / 2}" r="${tam / 2}" fill="${LARANJA}"/>` : `<rect width="${tam}" height="${tam}" fill="${LARANJA}"/>`}</svg>`);
     const marca = await sharp(emblema).resize(Math.round(tam * 0.72)).toBuffer();
     return sharp(fundo).composite([{ input: marca, gravity: 'center' }]).png();
   };

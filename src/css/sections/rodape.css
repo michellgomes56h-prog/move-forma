@@ -5,10 +5,10 @@
 .rodape__marca img { width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 0 0 4px var(--preto), 0 0 0 5px var(--laranja-40); }
 .rodape__frase { font-weight: var(--peso-ultra); font-style: italic; text-transform: uppercase; font-size: var(--fs-lg); }
 .rodape__frase em { font-style: inherit; color: var(--laranja); }
-.rodape__titulo { font-size: var(--fs-xs); font-weight: var(--peso-semi); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--laranja); margin-bottom: var(--sp-3); }
+.rodape__titulo { font-size: var(--fs-xs); font-weight: var(--peso-semi); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--texto-suave); margin-bottom: var(--sp-3); }
 .rodape__col a { display: inline-flex; align-items: center; gap: var(--sp-3); min-height: 44px; transition: color var(--dur-2); }
 .rodape__col a:hover { color: var(--laranja); }
-.rodape__col svg { width: 22px; height: 22px; color: var(--laranja); }
+.rodape__col svg { width: 22px; height: 22px; color: var(--branco); }
 .rodape__col address { font-style: normal; color: var(--texto-suave); }
 .rodape__base {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-3);

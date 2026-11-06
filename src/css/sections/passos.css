@@ -18,7 +18,7 @@
   transition: box-shadow var(--dur-3), color var(--dur-3), background-color var(--dur-3);
 }
 .passo.is-ativo .passo__num { background: var(--laranja); color: var(--preto); box-shadow: 0 0 0 6px var(--laranja-10), var(--glow-sm); }
-.passo__icone { width: 36px; height: 36px; color: var(--laranja); }
+.passo__icone { width: 36px; height: 36px; color: var(--branco); }
 .passo__titulo { font-size: var(--fs-lg); font-weight: var(--peso-ultra); font-style: italic; text-transform: uppercase; }
 .passo__texto { color: var(--texto-suave); max-width: 34ch; }
 

@@ -101,7 +101,7 @@
   gap: var(--sp-6);
   padding: calc(var(--header-h) + var(--sp-6)) var(--gutter) calc(var(--sp-6) + env(safe-area-inset-bottom));
   background:
-    radial-gradient(120% 60% at 100% 0%, rgb(232 112 42 / 0.16), transparent 60%),
+    radial-gradient(120% 60% at 100% 0%, rgb(242 150 96 / 0.16), transparent 60%),
     var(--preto);
   overflow-y: auto;
   overscroll-behavior: contain;
